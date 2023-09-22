@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title page</title>
+    <link rel="stylesheet" type="text/css" href="/static/homestyle.css">
+    <link href="https://font.googleapis.com/css2? family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <h1></h1>
+            <ul>
+                <li><a href="{{url_for('home')}}">Home</a></li>
+                <li><a href="{{url_for('about')}}">About Us</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <h1>Solution hub</h1>
+            <p>Elevate your learning journey with SolutionHub</br>Your go-to destination for academic solutions and collaborative knowledge sharing!</p>
+            <div>
+                <form action="/login" method="GET">
+                    <button><span></span>Welcome</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

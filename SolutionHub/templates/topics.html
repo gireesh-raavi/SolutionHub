@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display all topics</title>
+</head>
+<body>
+    <nav class="navbar">
+        <h1>All Topics</h1>
+    </nav>
+    <ul>
+        {%for i in topics%}
+        <li><a href="/solution/{{i.topic_id}}">{{i.title}}</a></li>
+        {%endfor%}
+    </ul>
+    <form action="/add_new_topic" method="POST">
+        Add a new topic:
+        <input type="text" name="q"><br/>
+        <button>Add topic</button>
+    </form>
+    <div class="message">
+        {%for category,message in get_flashed_messages(with_categories=true)%}
+        <div style="color:{{category}};">{{message}}</div>
+        {%endfor%}
+    </div>
+</body>
+</html>

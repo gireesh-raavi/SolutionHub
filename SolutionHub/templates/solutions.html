@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solutions for a topic</title>
+</head>
+<body>
+    <h1>{{topic.title}}</h1>
+    <ul>
+        {% for i in solutions%}
+        <li>{{i.description}}</li>
+        <form action="/delete_solution/{{topic.topic_id}}/{{i.solution_id}}">
+            <button>DELETE</button>
+        </form>
+        {%endfor%}
+    </ul>
+
+    <form action="/delete_topic/{{topic.topic_id}}">
+        <button>DELETE TOPIC</button>
+    </form> 
+    <form action="/add_new_solution/{{topic.topic_id}}" method="POST">
+        Add a new solution:
+        <input type="text" name="s"><br/>
+        <button>Add solution</button>
+    </form>
+    <div class="message">
+        {%for category,message in get_flashed_messages(with_categories=true)%}
+        <div style="color:{{category}};">{{message}}</div>
+        {%endfor%}
+    </div>
+</body>
+</html>

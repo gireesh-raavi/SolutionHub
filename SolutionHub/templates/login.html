@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/static/stylesheet.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="form-box">
+        <h1>Login</h1>
+        <form action="/login" method="POST">
+            <div class="input-group">
+                <div class="input-field">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="email" name="em" placeholder="email" required><br/>
+                </div>
+                <div class="input-field">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" name="ps" placeholder="password" required><br/>
+                </div>
+            </div>
+            <div class="btn-field">
+                <button type="submit">Submit</button>
+            </div>
+            <div class="message">
+                {%for category,message in get_flashed_messages(with_categories=true)%}
+                <div style="color:{{category}};">{{message}}</div>
+                {%endfor%}
+            </div>
+            <p><a href='{{url_for("login")}}'>Forgot Password</a></p>
+            <p>Didn't have an account?<a href="{{url_for('sign')}}">Signup</a></p>
+        </form>
+    </div>
+</div> 
+</body>
+</html>

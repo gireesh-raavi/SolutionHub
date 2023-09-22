@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" type="text/css" href="/static/signup.css">
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+    <div class="form-box">
+        <h1>Sign Up</h1>
+        <form action="/signup" method="POST">
+            <div class="input-group">
+                <div class="input-field">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" name="fn" placeholder="firstname" required><br/>
+                </div>
+                <div class="input-field">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" name="ln" placeholder="lastname" required><br/>
+                </div>
+                <div class="input-field">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" name="e" placeholder="email" required><br/>
+                </div>
+                <div class="input-field">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" name="p" placeholder="password" required><br/>
+                </div>
+                <div class="input-field">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" name="rp" placeholder="password" required><br/>
+                </div>
+            </div>
+            <!--last name:<input type="text" name="ln" required><br/>
+            email:<input type="email" name="e" required><br/>
+            password:<input type="password"  name="p" required><br/>
+            retype password:<input type="password" name="rp" required><br/>-->
+            <div class="btn-field">
+            <button>Register</button> 
+            </div>
+            <div class="message">
+                {%for category,message in get_flashed_messages(with_categories=true)%}
+                <div style="color:{{category}};">{{message}}</div>
+                {%endfor%}
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
